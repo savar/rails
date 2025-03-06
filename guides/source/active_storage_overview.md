@@ -681,6 +681,10 @@ user.avatar.purge_later
 [Attached::One#purge]: https://api.rubyonrails.org/classes/ActiveStorage/Attached/One.html#method-i-purge
 [Attached::One#purge_later]: https://api.rubyonrails.org/classes/ActiveStorage/Attached/One.html#method-i-purge_later
 
+NOTE: In case the the underlying [`ActiveStorage::Blob`] is also attached to a different model, the purge will only delete
+the reference ([`ActiveStorage::Attachment`]) in the database, but keeps the [`ActiveStorage::Blob`] and therefore file in
+the storage service until no model references it anymore.
+
 Serving Files
 -------------
 
